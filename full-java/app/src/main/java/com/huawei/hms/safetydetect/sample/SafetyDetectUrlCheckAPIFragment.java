@@ -42,6 +42,8 @@ import java.util.List;
  * An example of how to use UrlCheck Service API.
  *
  * Note that you should call initUrlCheck method before you call urlCheck method.
+ *
+ * @since 4.0.0.300
  */
 public class SafetyDetectUrlCheckAPIFragment extends Fragment
         implements AdapterView.OnItemSelectedListener, View.OnClickListener {

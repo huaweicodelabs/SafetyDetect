@@ -35,6 +35,8 @@ import com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes;
 /**
  * An example of how to use WifiDetect Service API.
  * Note that you have to configure an AppId for SafetyDetect Service first.
+ *
+ * @since 4.0.0.300
  */
 public class SafetyDetectWifiDetectAPIFragment extends Fragment implements View.OnClickListener {
     public static final String TAG = SafetyDetectWifiDetectAPIFragment.class.getSimpleName();

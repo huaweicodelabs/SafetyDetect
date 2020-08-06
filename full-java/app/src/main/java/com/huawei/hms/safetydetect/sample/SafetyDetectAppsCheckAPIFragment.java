@@ -41,6 +41,8 @@ import java.util.List;
 /**
  * An example of how to use AppsCheck Service API.
  * Note that you have to configure an AppId for SafetyDetect Service first.
+ *
+ * @since 4.0.0.300
  */
 public class SafetyDetectAppsCheckAPIFragment extends Fragment implements View.OnClickListener {
     public static final String TAG = SafetyDetectAppsCheckAPIFragment.class.getSimpleName();

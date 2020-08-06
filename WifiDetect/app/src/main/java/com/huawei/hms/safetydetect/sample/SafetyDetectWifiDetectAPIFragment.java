@@ -16,13 +16,6 @@
 
 package com.huawei.hms.safetydetect.sample;
 
-import com.huawei.hmf.tasks.OnFailureListener;
-import com.huawei.hmf.tasks.OnSuccessListener;
-import com.huawei.hms.common.ApiException;
-import com.huawei.hms.support.api.entity.safetydetect.WifiDetectResponse;
-import com.huawei.hms.support.api.safetydetect.SafetyDetect;
-import com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes;
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,9 +25,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.huawei.hmf.tasks.OnFailureListener;
+import com.huawei.hmf.tasks.OnSuccessListener;
+import com.huawei.hms.common.ApiException;
+import com.huawei.hms.support.api.entity.safetydetect.WifiDetectResponse;
+import com.huawei.hms.support.api.safetydetect.SafetyDetect;
+import com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes;
+
+
+
 /**
  * An example of how to use WifiDetect Service API.
  * Note that you have to configure an AppId for SafetyDetect Service first.
+ *
+ * @since 4.0.3.300
  */
 public class SafetyDetectWifiDetectAPIFragment extends Fragment implements View.OnClickListener {
     public static final String TAG = SafetyDetectWifiDetectAPIFragment.class.getSimpleName();
@@ -55,9 +59,7 @@ public class SafetyDetectWifiDetectAPIFragment extends Fragment implements View.
         mButton1 = getActivity().findViewById(R.id.fg_get_wifidetect_status);
         mButton1.setOnClickListener(this);
 
-        wifiDetectStatusView = getActivity().findViewById(R.id.fg_wifidetecttextView);
-
-    }
+        wifiDetectStatusView = getActivity().findViewById(R.id.fg_wifidetecttextView);}
 
     @Override
     public void onClick(View v) {
@@ -102,7 +104,6 @@ public class SafetyDetectWifiDetectAPIFragment extends Fragment implements View.
                     Log.e(TAG, msg);
                     wifiDetectStatusView.setText(msg);
                 }
-            });
-    }
+            }); }
 
 }

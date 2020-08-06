@@ -41,7 +41,10 @@ import java.util.List;
 /**
  * An example of how to use AppsCheck Service API.
  * Note that you have to configure an AppId for SafetyDetect Service first.
+ *
+ * @since 4.0.0.300
  */
+
 public class SafetyDetectAppsCheckAPIFragment extends Fragment implements View.OnClickListener {
     public static final String TAG = SafetyDetectAppsCheckAPIFragment.class.getSimpleName();
 
@@ -52,7 +55,6 @@ public class SafetyDetectAppsCheckAPIFragment extends Fragment implements View.O
         return inflater.inflate(R.layout.fg_appscheck, container, false);
     }
 
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -61,19 +63,22 @@ public class SafetyDetectAppsCheckAPIFragment extends Fragment implements View.O
         getActivity().findViewById(R.id.fg_verify_appscheck).setOnClickListener(this);
         getActivity().findViewById(R.id.fg_get_malicious_apps).setOnClickListener(this);
 
-        maliciousAppListView = getActivity().findViewById(R.id.fg_list_app);
-
-    }
+        maliciousAppListView = getActivity().findViewById(R.id.fg_list_app);}
 
     @Override
     public void onClick(View v) {
-        int id = v.getId();
-        if (id == R.id.fg_enable_appscheck) {
-            enableAppsCheck();
-        } else if (id == R.id.fg_verify_appscheck) {
-            verifyAppsCheckEnabled();
-        } else if (id == R.id.fg_get_malicious_apps) {
-            getMaliciousApps();
+        switch (v.getId()) {
+            case R.id.fg_enable_appscheck:
+                enableAppsCheck();
+                break;
+            case R.id.fg_verify_appscheck:
+                verifyAppsCheckEnabled();
+                break;
+            case R.id.fg_get_malicious_apps:
+                getMaliciousApps();
+                break;
+            default:
+                break;
         }
     }
 
@@ -176,11 +181,13 @@ public class SafetyDetectAppsCheckAPIFragment extends Fragment implements View.O
                                     Log.e(TAG, "  Category: " + maliciousApp.getApkCategory());
                                 }
 
-                                ListAdapter maliciousAppAdapter = new MaliciousAppsDataListAdapter(appsDataList, getActivity().getApplicationContext());
+                                ListAdapter maliciousAppAdapter =
+                                        new MaliciousAppsDataListAdapter(appsDataList,getActivity().getApplicationContext());
                                 maliciousAppListView.setAdapter(maliciousAppAdapter);
                             }
                         } else {
-                            String msg = "Get malicious apps list failed! Message: " + maliciousAppsListResp.getErrorReason();
+                            String msg = "Get malicious apps list failed! Message: "
+                                    + maliciousAppsListResp.getErrorReason();
                             Log.e(TAG, msg);
                             Toast.makeText(getActivity().getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                         }

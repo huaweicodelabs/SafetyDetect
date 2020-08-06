@@ -23,9 +23,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-
 public class MainActivity extends Activity implements View.OnClickListener {
-
     public static final String TAG = "MainActivity";
 
     // UI Object

@@ -37,9 +37,13 @@ import com.huawei.hms.support.api.safetydetect.SafetyDetectStatusCodes;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * An example of how to use SysIntegrity Service API.
  * Note that you have to configure an AppId for SafetyDetect Service first.
+ *
+ * @since 4.0.0.300
  */
 public class SafetyDetectSysIntegrityAPIFragment extends Fragment implements View.OnClickListener {
     public static final String TAG = SafetyDetectSysIntegrityAPIFragment.class.getSimpleName();
@@ -91,8 +95,8 @@ public class SafetyDetectSysIntegrityAPIFragment extends Fragment implements Vie
                         // Process the result data here
                         String[] jwsSplit = jwsStr.split("\\.");
                         String jwsPayloadStr = jwsSplit[1];
-                        String payloadDetail = new String(Base64.decode(jwsPayloadStr.getBytes(), Base64.URL_SAFE));
                         try {
+                            String payloadDetail = new String(Base64.decode(jwsPayloadStr.getBytes(StandardCharsets.UTF_8), Base64.URL_SAFE), StandardCharsets.UTF_8);
                             final JSONObject jsonObject = new JSONObject(payloadDetail);
                             final boolean basicIntegrity = jsonObject.getBoolean("basicIntegrity");
                             mButton1.setBackgroundResource(basicIntegrity ? R.drawable.btn_round_green : R.drawable.btn_round_red);
@@ -105,6 +109,9 @@ public class SafetyDetectSysIntegrityAPIFragment extends Fragment implements Vie
                                 adviceTextView.setText(advice);
                             }
                         } catch (JSONException e) {
+                            String errorMsg = e.getMessage();
+                            Log.e(TAG, errorMsg != null ? errorMsg : "unknown error");
+                        } catch (Exception e) {
                             String errorMsg = e.getMessage();
                             Log.e(TAG, errorMsg != null ? errorMsg : "unknown error");
                         }

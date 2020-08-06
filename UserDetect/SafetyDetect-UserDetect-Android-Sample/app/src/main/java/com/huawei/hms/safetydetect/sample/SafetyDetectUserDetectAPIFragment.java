@@ -48,6 +48,8 @@ import java.util.concurrent.ExecutionException;
 
 /**
  * An example of how to use UserDetect Service API.
+ *
+ * @since 4.0.0.300
  */
 public class SafetyDetectUserDetectAPIFragment extends Fragment implements View.OnClickListener {
     public static final String TAG = SafetyDetectUserDetectAPIFragment.class.getSimpleName();
@@ -108,7 +110,8 @@ public class SafetyDetectUserDetectAPIFragment extends Fragment implements View.
                                     .show();
                         } else {
                             Toast.makeText(getActivity().getApplicationContext(),
-                                    "User detection succeed but verify fail, please replace verify url with your's server address",
+                                    "User detection succeed but verify fail,"
+                                            + "please replace verify url with your's server address",
                                     Toast.LENGTH_SHORT)
                                     .show();
                         }
@@ -124,8 +127,8 @@ public class SafetyDetectUserDetectAPIFragment extends Fragment implements View.
                         if (e instanceof ApiException) {
                             // An error with the HMS API contains some additional details.
                             ApiException apiException = (ApiException) e;
-                            errorMsg = SafetyDetectStatusCodes.getStatusCodeString(apiException.getStatusCode()) +
-                                    ": " + apiException.getMessage();
+                            errorMsg = SafetyDetectStatusCodes.getStatusCodeString(apiException.getStatusCode())
+                                    + ": " + apiException.getMessage();
                             // You can use the apiException.getStatusCode() method to get the status code.
                         } else {
                             // Unknown type of error has occurred.
@@ -186,14 +189,14 @@ public class SafetyDetectUserDetectAPIFragment extends Fragment implements View.
         conn.setRequestProperty("Content-Type", "application/json");
         conn.setRequestProperty("Accept", "application/json");
 
-        try (OutputStream os = conn.getOutputStream(); BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, StandardCharsets.UTF_8))) {
+        try (OutputStream os = conn.getOutputStream(); BufferedWriter writer =
+                new BufferedWriter(new OutputStreamWriter(os, StandardCharsets.UTF_8))) {
             writer.write(postDataParams.toString());
             writer.flush();
         }
 
         int responseCode = conn.getResponseCode(); // To Check for 200
         if (responseCode == HttpURLConnection.HTTP_OK) {
-
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuffer sb = new StringBuffer();
             String line;
@@ -205,7 +208,6 @@ public class SafetyDetectUserDetectAPIFragment extends Fragment implements View.
             return sb.toString();
         }
         return null;
-
     }
 
     private void processView() {

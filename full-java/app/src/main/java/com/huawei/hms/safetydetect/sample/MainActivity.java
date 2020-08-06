@@ -25,6 +25,8 @@ import android.widget.TextView;
 /**
  * A simple launcher activity containing a summary sample description
  * and a few action bar buttons at bottom of view.
+ *
+ * @since 4.0.0.300
  */
 public class MainActivity extends Activity implements View.OnClickListener {
 

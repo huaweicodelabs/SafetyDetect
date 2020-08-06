@@ -20,6 +20,7 @@ package com.huawei.hms.sysintegrity;
  * Instrumented test, which will execute on an Android device.
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ * @since 4.0.0.300
  */
 /*@RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {

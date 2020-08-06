@@ -32,6 +32,8 @@ import java.util.List;
 
 /**
  * Simple BaseAdapter which is used to list malicious apps data through the ListView widget.
+ *
+ * @since 4.0.0.300
  */
 public class MaliciousAppsDataListAdapter extends BaseAdapter {
     private final List<MaliciousAppsData> maliciousAppsData = new ArrayList<>();
@@ -73,7 +75,7 @@ public class MaliciousAppsDataListAdapter extends BaseAdapter {
             return context.getString(R.string.app_type_risk);
         } else if (apkCategory == AppsCheckConstants.VIRUS_LEVEL_VIRUS) {
             return context.getString(R.string.app_type_virus);
-        }
-        return context.getString(R.string.app_type_unknown);
+        } else {
+            return context.getString(R.string.app_type_unknown); }
     }
 }

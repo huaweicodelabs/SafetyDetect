@@ -48,6 +48,8 @@ import java.util.concurrent.ExecutionException;
 /**
  * An example of how to use the UserDetect Service API.
  *
+ * @since 4.0.0.300
+ *
  */
 public class SafetyDetectUserDetectAPIFragment extends Fragment implements View.OnClickListener {
     public static final String TAG = SafetyDetectUserDetectAPIFragment.class.getSimpleName();
@@ -162,13 +164,13 @@ public class SafetyDetectUserDetectAPIFragment extends Fragment implements View.
                         Log.i(TAG, "verify: result = " + success);
                         return success;
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Log.e(TAG, e.getMessage());
                         return false;
                     }
                 }
             }.execute(responseToken).get();
         } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
+            Log.e(TAG, e.getMessage());
             return false;
         }
     }

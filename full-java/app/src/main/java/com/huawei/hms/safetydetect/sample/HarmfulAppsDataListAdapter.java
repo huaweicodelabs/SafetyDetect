@@ -31,6 +31,8 @@ import java.util.List;
 
 /**
  * Simple BaseAdapter which is used to list harmful apps data through the ListView widget.
+ *
+ * @since 4.0.0.300
  */
 public class HarmfulAppsDataListAdapter extends BaseAdapter {
     private final List<MaliciousAppsData> harmfulAppsData = new ArrayList<>();
