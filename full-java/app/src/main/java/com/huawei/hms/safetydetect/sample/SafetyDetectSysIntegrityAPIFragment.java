@@ -38,6 +38,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 /**
  * An example of how to use SysIntegrity Service API.
@@ -83,7 +85,19 @@ public class SafetyDetectSysIntegrityAPIFragment extends Fragment implements Vie
 
     private void invokeSysIntegrity() {
         // TODO(developer): Change the nonce generation to include your own value.
-        byte[] nonce = ("Sample" + System.currentTimeMillis()).getBytes();
+        byte[] nonce = new byte[24];
+        try {
+            SecureRandom random;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                random = SecureRandom.getInstanceStrong();
+            } else {
+                random = SecureRandom.getInstance("SHA1PRNG");
+            }
+            random.nextBytes(nonce);
+        } catch (NoSuchAlgorithmException e) {
+            Log.e(TAG, e.getMessage());
+        }
+
         SafetyDetect.getClient(getActivity())
                 .sysIntegrity(nonce, APP_ID)
                 .addOnSuccessListener(new OnSuccessListener<SysIntegrityResp>() {
