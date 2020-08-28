@@ -61,7 +61,19 @@ class SafetyDetectSysIntegrityAPIFragment : Fragment() {
 
     private fun invokeSysIntegrity() {
         // TODO(developer): Change the nonce generation to include your own value.
-        val nonce = getString(R.string.nounce_sample_string, System.currentTimeMillis()).toByteArray()
+        
+        val nonce = ByteArray(24)
+        try {
+            val random: SecureRandom = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                SecureRandom.getInstanceStrong()
+            } else {
+                SecureRandom.getInstance("SHA1PRNG")
+            }
+            random.nextBytes(nonce)
+        } catch (e: NoSuchAlgorithmException) {
+            Log.e(TAG, e.message!!)
+        }
+
         Log.d(TAG,"nonce value : $nonce")
         SafetyDetect.getClient(activity)
             .sysIntegrity(nonce, APP_ID)
