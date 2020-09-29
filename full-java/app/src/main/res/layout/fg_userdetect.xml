@@ -10,42 +10,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.huawei.hms.safetydetect.sample.SafetyDetectUserDetectAPIFragment">
 
-    <TableLayout
-        android:layout_width="fill_parent"
+    <TextView
+        android:id="@+id/fg_text_hint"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:stretchColumns="*">
-
-        <TableRow>
-
-            <EditText
-                android:id="@+id/fg_user_name"
-                android:layout_width="220dp"
-                android:layout_height="40dp"
-                android:hint="@string/user_name_text"
-                android:textSize="12sp" />
-        </TableRow>
-
-        <TableRow>
-
-            <EditText
-                android:id="@+id/fg_call_userdetect_password"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:inputType="textPassword"
-                android:hint="@string/password_text"
-                android:textSize="12sp" />
-        </TableRow>
-
-    </TableLayout>
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="@string/detect_go_hint_user_detect" />
 
     <Button
-        android:id="@+id/fg_login_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
+        android:id="@+id/fg_userdetect_btn"
         style="@style/Widget.AppCompat.Button.Colored"
-        android:background="@drawable/btn_round_corner_small"
-        android:text="@string/login_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="60dp"
+        android:background="@drawable/btn_round_normal"
+        android:fadingEdge="horizontal"
+        android:onClick="onClick"
+        android:text="@string/user_detect_btn"
         android:textSize="12sp" />
 </LinearLayout>

@@ -54,7 +54,8 @@ import java.util.concurrent.ExecutionException;
 public class SafetyDetectUserDetectAPIFragment extends Fragment implements View.OnClickListener {
     public static final String TAG = SafetyDetectUserDetectAPIFragment.class.getSimpleName();
 
-    private static final int APP_ID = 101324691;
+    //TODO(developer):replace the APP_ID id with your own app id
+    private static final String APP_ID = "******";
 
     private SafetyDetectClient client;
 
@@ -84,19 +85,19 @@ public class SafetyDetectUserDetectAPIFragment extends Fragment implements View.
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        getActivity().findViewById(R.id.fg_login_btn).setOnClickListener(this);
+        getActivity().findViewById(R.id.fg_userdetect_btn).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.fg_login_btn) {
+        if (v.getId() == R.id.fg_userdetect_btn) {
             detect();
         }
     }
 
     private void detect() {
         Log.i(TAG, "User detection start.");
-        client.userDetection(String.valueOf(APP_ID))
+        client.userDetection(APP_ID)
                 .addOnSuccessListener(new OnSuccessListener<UserDetectResponse>() {
                     /**
                      * Called after successfully communicating with the SafetyDetect API.

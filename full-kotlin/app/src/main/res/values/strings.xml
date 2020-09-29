@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SafetyDetectKotlinDemo</string>
+    <string name="app_name">HMSSafetyDetectSample</string>
 
     <string name="title_activity_main">Main</string>
     <string name="title_activity_start">start</string>
@@ -10,12 +10,10 @@
     <string name="run">Run detection</string>
     <string name="processing">Detecting</string>
     <string name="rerun">Rerun detection</string>
-    <string name="basic_integrity_txt">Basic Integrity : %1$s</string>
-    <string name="basic_integrity_advice_txt">Advice: : %1$s</string>
 
     <string name="detect_go_hint">Click the button below to detect system integrity.</string>
+    <string name="detect_go_hint_user_detect">Click the button below to user detect.</string>
     <string name="error_title">Error:</string>
-    <string name="nounce_sample_string">Sample : %1$d</string>
 
     <!-- AppsCheck -->
     <string name="title_apps_check_entry">AppsCheck</string>
@@ -28,32 +26,19 @@
     <string name="app_type_risk">Risk App</string>
     <string name="app_type_unknown">Unknown App</string>
 
-    <string name="error_message_str">Verify AppsCheck Enabled failed! Message: %1$s</string>
-    <string name="verify_message_txt">The AppsCheck feature is enabled.</string>
-    <string name="apps_check_enabled_str">The AppsCheck feature is enabled.</string>
-    <string name="apps_check_failed_str">Enable AppsCheck failed! Message</string>
-    <string name="apps_check_no_threat_str">No known potentially malicious apps are installed.</string>
-    <string name="get_malicious_apps_failed_str">Get malicious apps list failed! Message:</string>
-
     <!-- UrlCheck -->
     <string name="title_url_check_entry">URLCheck</string>
     <string name="title_activity_url_check">URLCheck</string>
     <string name="call_url_text">http|https://</string>
     <string name="call_url_btn">check url</string>
     <string name="call_result_text">check result</string>
-    <string name="threat_not_found">No threats found.</string>
-    <string name="threats_found">Threats found!</string>
-    <string name="url_check_failed_error">Url check failed error : %1$S</string>
-
     <!-- UserDetect -->
     <string name="title_user_detect_entry">UserDetect</string>
     <string name="title_activity_user_detect">UserDetect</string>
+    <string name="user_detect_btn">Run Detection</string>
     <string name="login_btn">Login</string>
     <string name="user_name_text">username</string>
     <string name="password_text">password</string>
-    <string name="user_detect_success_str">User detection succeed and verify succeed</string>
-    <string name="user_detect_failed_str">User detection succeed but verify fail, please replace verify url with your\'s server address</string>
-    <string name="user_detect_failed_info_error">User detection fail. Error info : %1$s</string>
 
     <!-- WifiDetect -->
     <string name="title_wifi_detect_entry">WifiDetect</string>
@@ -66,8 +51,5 @@
     <string name="tab_menu_urlcheck">URLCheck</string>
     <string name="tab_menu_user">UserDetect</string>
     <string name="tab_menu_wifidetect">WifiDetect</string>
-
-    <string name="wifi_status_txt">WifiDetect status: %1$s</string>
-    <string name="wifi_status_error_txt">Get wifiDetect status failed! Message: %1$s</string>
 
 </resources>

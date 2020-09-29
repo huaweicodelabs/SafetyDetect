@@ -50,7 +50,8 @@ public class SafetyDetectUrlCheckAPIFragment extends Fragment
 
     public static final String TAG = SafetyDetectUrlCheckAPIFragment.class.getSimpleName();
 
-    private static final int APP_ID = 101324691;
+    //TODO(developer):replace the APP_ID id with your own app id
+    private static final String APP_ID = "******";
 
     private SafetyDetectClient client;
 
@@ -119,7 +120,7 @@ public class SafetyDetectUrlCheckAPIFragment extends Fragment
         EditText editText = getActivity().findViewById(R.id.fg_call_urlCheck_text);
         String realUrl = editText.getText().toString().trim();
         final EditText testRes = getActivity().findViewById(R.id.fg_call_urlResult);
-        client.urlCheck(realUrl, String.valueOf(APP_ID),
+        client.urlCheck(realUrl, APP_ID,
                 // Specify url threat type
                 UrlCheckThreat.MALWARE,
                 UrlCheckThreat.PHISHING)

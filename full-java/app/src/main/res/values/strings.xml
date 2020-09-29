@@ -12,6 +12,7 @@
     <string name="rerun">Rerun detection</string>
 
     <string name="detect_go_hint">Click the button below to detect system integrity.</string>
+    <string name="detect_go_hint_user_detect">Click the button below to user detect.</string>
     <string name="error_title">Error:</string>
 
     <!-- AppsCheck -->
@@ -34,6 +35,7 @@
     <!-- UserDetect -->
     <string name="title_user_detect_entry">UserDetect</string>
     <string name="title_activity_user_detect">UserDetect</string>
+    <string name="user_detect_btn">Run Detection</string>
     <string name="login_btn">Login</string>
     <string name="user_name_text">username</string>
     <string name="password_text">password</string>

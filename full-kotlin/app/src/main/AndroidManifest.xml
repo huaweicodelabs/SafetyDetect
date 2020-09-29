@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.huawei.kotlinsafetykitdemo">
-
-    <!-- Open Network Permission -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- Access WiFi State -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    package="com.huawei.hms.safetydetect.sample">
 
     <application
         android:allowBackup="true"
@@ -13,9 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
 
-        <activity android:name="com.huawei.kotlinsafetykitdemo.MainActivity">
+        >
+
+        <activity android:name="com.huawei.hms.safetydetect.sample.MainActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -24,5 +22,10 @@
         </activity>
 
     </application>
+
+    <!-- Open Network Permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Access WiFi State -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
 </manifest>
